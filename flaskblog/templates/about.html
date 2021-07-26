@@ -1,0 +1,32 @@
+{% extends "layout.html"%}
+{% block content %}
+<div class="container-fluid d-flex">
+    <div class="row main-content">
+        <div class="col-md-5">
+            <h1>About Me</h1>  
+            <hr>
+            <p>Welcome to my website! I'm an average high school boy interested in computer science.</p>
+            <p>In my free time, you'll find me playing League of Legends, reading political and economic articles, or playing piano. Nice to meet you! </p>    
+            <p>Check out my <a href="{{ url_for('blog') }}">blog</a> if you're interested in learning more about me :)</p>
+        </div>
+        <div class="col-md-4">
+            <img class="img-fluid"src="{{ about_image }}">
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">My Socials</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Email</li>
+                        <li class="list-group-item">Instagram</li>
+                        <li class="list-group-item">Facebook</li>
+                        <li class="list-group-item">Twitter</li>
+                        <li class="list-group-item">Discord</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}
