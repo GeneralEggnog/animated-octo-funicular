@@ -49,6 +49,9 @@ def update_post(post_id):
 @posts.route("/blog/post/<int:post_id>/delete")
 def delete_post(post_id):
     post = Post.query.get_or_404(post_id)
+    comments = Comment.query.filter_by(post_id=post_id)
+    for comment in comments:
+        db.session.delete(comment)
     db.session.delete(post)
     db.session.commit()
     flash('Post has been deleted!', 'danger')
