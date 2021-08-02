@@ -1,36 +1,39 @@
 {% extends "layout.html"%}
 {% set active_page = "blog" %}
 {% block content %}
-<div class="container-fluid px-0 d-flex h-100">
-    <div class="row no-gutters flex-grow-1">
-        <div class="col-md-3 bg-light ">
+<div class="container-fluid h-100">
+    <div class="row">
+        <div class="col-lg-3 bg-light">
             <div class="sticky-top p-3">
-                <div class="d-flex flex-column">
-                    <img id="circle-image" class="mx-auto d-block my-4" src="{{ url_for('static', filename='blog_profile.jpg') }}">
-                    <h4 class="text-center">Kendle Lam</h4>
-                    <div class="text-muted text-center">
-                        {{posts.total}} Posts &#8226; Last posted {{posts.items[0].date_posted.strftime('%B %e, %Y')}}
+                <div class="flex-column">
+                    <div class="container">
+                        <img id="circle-image" class="mx-auto d-block my-4" src="{{ url_for('static', filename='blog_profile.jpg') }}">
+                        <h4 class="text-center">Kendle Lam</h4>
+                        <div class="text-muted text-center">
+                            {{posts.total}} Posts &#8226; Last posted {{posts.items[0].date_posted.strftime('%B %e, %Y')}}
+                        </div>
+                        <div class="p-4">
+                            <p>Hi everyone, welcome to my blog!</p> 
+                            <p>I've never really blogged before so don't expect polished articles!</p>
+                            <p>Here I post about random
+                                stuff from League guides (I'm qualified as a prestigious Platinum player) to my personal thoughts. If you have time drop a comment on a post! </p> 
+                            <p>Happy reading!</p>
+                        </div>
                     </div>
-                    <div class="p-4">
-                        <p>Hi everyone, welcome to my blog!</p> 
-                        <p>I've never really blogged before so don't expect polished articles!</p>
-                        <p>Here I post about random
-                            stuff from League guides (I'm qualified as a prestigious Platinum player) to my personal thoughts. If you have time drop a comment on a post! </p> 
-                        <p>Happy reading!</p>
-                    </div>
+                    
                 </div>
                 
             </div>
         </div>
-        <div class="col-md-9 px-3">
+        <div class="col-lg-9 px-3">
             {% if current_user.is_authenticated %}
             <a class="btn btn-info mt-3" href="{{ url_for('posts.new_post') }}">New Post</a>
             {% endif %}
             {% for post in posts.items %}
             <a id="{{ post.id }}"></a>
-            <div class="card my-3 flex-row d-flex">
+            <div class="card my-3 flex-row">
                 <div class="card-body">
-                    <h3 class="card-title text-truncate">{{ post.title }}</h3>
+                    <h3 class="card-title">{{ post.title }}</h3>
                     <p class="card-subtitle text-muted">{{ post.date_posted.strftime('%B %e, %Y') }}
                         {% if post.date_posted.strftime('%B %e, %Y') != post.last_updated.strftime('%B %e, %Y') %} |
                         <span> Last Updated on {{ post.last_updated.strftime('%B %e, %Y')}}</span>
@@ -41,7 +44,7 @@
                     
                 </div>
                 <a href="{{ url_for('posts.post', post_id=post.id, blogpage=posts.page) }}">
-                    <button class="btn btn-info rounded-0 h-100" >
+                    <button class="btn btn-info rounded-1 h-100" >
                         <i class="bi bi-arrow-right"></i>
                     </button>
                     

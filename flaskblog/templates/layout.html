@@ -21,16 +21,7 @@
 </head>
 
 <body>
-    {% if current_user.is_authenticated %}
-    {% set navigation_bar = [
-        ('main.index', 'index', 'Home'),
-        ('main.about', 'about', 'About'),
-        ('main.contact', 'contact', 'Contact'),
-        ('posts.blog', 'blog', 'Blog'),
-        ('users.logout', 'logout', 'Logout')
-        
-    ] -%}
-    {% else %}
+
     {% set navigation_bar = [
         ('main.index', 'index', 'Home'),
         ('main.about', 'about', 'About'),
@@ -38,23 +29,36 @@
         ('posts.blog', 'blog', 'Blog')
         
     ] -%}
-    {% endif %}
     
     {% set active_page = active_page|default('index') -%}
     
     <div class="header">
         <h1>Kendle Lam</h1>
     </div>
-    <ul class="nav justify-content-center p-3" style="background-color: rgb(233, 151, 0);">
-        {% for href, id, caption in navigation_bar %}
+    <nav class="navbar navbar-expand-lg p-2 navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="p-2 collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav" >
+                {% for href, id, caption in navigation_bar %}
+                {% if id == active_page %} 
+                <li class="nav-item mx-3 border-top border-bottom"><a class="nav-link" href="{{ url_for(href) }}">{{ caption|e }}</a></li>
+                {% else %}
+                <li class="nav-item mx-3"><a class="nav-link" href="{{ url_for(href) }}">{{ caption|e }}</a></li>
+                {% endif%}
+                {% endfor %} 
+            </ul>
+            {% if current_user.is_authenticated %}
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-3 align-self-right"><a class="nav-link" href="{{ url_for('users.logout') }}">Logout</a></li>
+            </ul>
+                
+            {% endif %}
+          </div>
         
-        {% if id == active_page %} 
-        <li class="nav-item mx-3 border-top border-bottom"><a class="nav-link" href="{{ url_for(href) }}">{{ caption|e }}</a></li>
-        {% else %}
-        <li class="nav-item mx-3"><a class="nav-link" href="{{ url_for(href) }}">{{ caption|e }}</a></li>
-        {% endif%}
-        {% endfor %} 
-    </ul>
+    </nav>
+    
     {% with messages = get_flashed_messages(with_categories=True) %}
     {% if messages %}
         {% for category,message in messages %}

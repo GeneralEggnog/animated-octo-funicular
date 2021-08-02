@@ -44,12 +44,9 @@ a.disabled {
 
 
 .main-content{
-    padding:100px;
+    width:80%;
 }
 
-html, body{
-    height:100%;
-}
 
 .header{
     text-align:center;
