@@ -25,6 +25,7 @@ Jinja2==3.0.1
 Mako==1.1.4
 MarkupSafe==2.0.1
 packaging==21.0
+psycopg2-binary==2.9.1
 pycparser==2.20
 pyparsing==2.4.7
 python-dateutil==2.8.2
