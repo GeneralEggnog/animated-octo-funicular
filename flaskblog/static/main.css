@@ -1,6 +1,47 @@
-a.navbar-brand{
-    color:black;
+a.nav-link{
+    color:white;
 }
+
+a.nav-link:hover{
+    color:rgb(214, 214, 214);
+}
+
+#circle-image{
+    height:120px;
+    width:120px;
+    border-radius:50%;
+    background-position:center;
+}
+
+h5 span{
+    font-size: 1rem;
+}
+
+.blog-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* number of lines to show */
+    -webkit-box-orient: vertical;
+ }
+
+.blog-card{
+    border:1px solid rgb(187, 187, 187);
+    background-color: white;
+}
+
+.card-title{
+    line-height: normal;
+}
+
+.invisible{
+    visibility: hidden;
+}
+
+a.disabled {
+    pointer-events: none;
+}
+
 
 .main-content{
     padding:100px;
@@ -9,10 +50,27 @@ a.navbar-brand{
 html, body{
     height:100%;
 }
+
 .header{
     text-align:center;
-    padding:100px;
-    background-color: rgb(125, 202, 95);
+    background-image: url("header_image.jpg");
+    background-size:cover;
+    padding-top:100px;
+    padding-bottom:100px;
     color:white;
 }
 
+
+
+.content-section{
+    margin-top:100px;
+}
+
+.home-content{
+    padding:50px;
+    background-color: rgb(202, 202, 202);
+}
+
+.home-box{
+    background-color:white;
+}

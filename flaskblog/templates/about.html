@@ -1,28 +1,33 @@
 {% extends "layout.html"%}
+{% set active_page = "about" %}
 {% block content %}
 <div class="container-fluid d-flex">
     <div class="row main-content">
         <div class="col-md-5">
             <h1>About Me</h1>  
             <hr>
-            <p>Welcome to my website! I'm an average high school boy interested in computer science.</p>
-            <p>In my free time, you'll find me playing League of Legends, reading political and economic articles, or playing piano. Nice to meet you! </p>    
-            <p>Check out my <a href="{{ url_for('blog') }}">blog</a> if you're interested in learning more about me :)</p>
+            <p>My name is Kendle, and I'm a 16 year old high school senior. Here are some fun facts about me :) </p>
+            <ul>
+                <li><b>My favorite animal</b> is a dog.</li>
+                <li><b>I wish I could live</b> in Russia.</li>
+                <li><b>Something I love to do</b> is play games with my friends.</li>
+                <li><b>I would love to meet</b> Michael Phelps.</li>
+            </ul>
+            <p>I'm interested in learning about you, too! Head over to my <a href="{{ url_for('posts.blog') }}">blog</a> and post a comment so I can get to know you!</p>
         </div>
         <div class="col-md-4">
-            <img class="img-fluid"src="{{ about_image }}">
+            <img class="img-fluid"src="{{ url_for('static', filename='about_image.jpg')}}">
         </div>
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">My Socials</h5>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Email</li>
-                        <li class="list-group-item">Instagram</li>
-                        <li class="list-group-item">Facebook</li>
-                        <li class="list-group-item">Twitter</li>
-                        <li class="list-group-item">Discord</li>
-                        
+                        <a href="mailto:kendle.lam@gmail.com" target="_blank" rel="noopener noreferrer"><li class="list-group-item"><i class="bi bi-envelope mr-3"></i></i>Email</li></a>
+                        <a href="https://www.instagram.com/kendle.lam/" target="_blank" rel="noopener noreferrer"><li class="list-group-item"><i class="bi bi-instagram mr-3"></i>Instagram</li></a>
+                        <a href="https://www.facebook.com/profile.php?id=100009412276691" target="_blank" rel="noopener noreferrer"><li class="list-group-item"><i class="bi bi-facebook mr-3"></i>Facebook</li></a>
+                        <a href="https://twitter.com/LamKendle" target="_blank" rel="noopener noreferrer"><li class="list-group-item"><i class="bi bi-twitter mr-3"></i>Twitter</li></a>
+                        <a><li class="list-group-item"><i class="bi bi-discord mr-3"></i>Discord: babykendle#2920</li></a>
                     </ul>
                 </div>
             </div>
