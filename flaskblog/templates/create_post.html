@@ -1,0 +1,37 @@
+{% extends "layout.html"%}
+{% set active_page = "blog" %}
+{% block content %}
+
+<div class="container my-3">
+    <a class="btn bg-light my-3" href=javascript:history.back()><i class="bi bi-arrow-left"></i><span class="ml-2"> Back</span></a>
+    <legend class="border-bottom mb-3">{{ legend }}</legend>
+    <form method="POST" action="">
+        {{ form.csrf_token }}
+        <div class ="form-group">
+            {{ form.title.label }}
+            {{ form.title(class="form-control") }}
+        </div>      
+        <div class ="form-group">
+            {{ form.content.label }}
+            {{ form.content(class="form-control", rows=30) }}
+        </div>        
+        <div class ="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>        
+    </form> 
+</div>
+
+<script src="https://cdn.tiny.cloud/1/x5xedkas9j5vinilvzforqrib3msdt54bsjq3r5x5hr2z53f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script type="text/javascript">
+    tinymce.init({
+        selector:'#content',
+        setup: function (editor) {
+        editor.on('change', function () {
+            tinymce.triggerSave();
+        });
+    }
+    });
+</script>
+
+{% endblock%}
+
