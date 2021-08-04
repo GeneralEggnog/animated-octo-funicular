@@ -1,4 +1,4 @@
-from flask import render_template, url_for, flash, redirect, Blueprint
+from flask import render_template, url_for, flash, redirect, Blueprint, send_file
 from flaskblog.main.forms import ContactForm
 import smtplib, ssl
 from email.mime.text import MIMEText
@@ -40,3 +40,6 @@ def contact():
         return redirect(url_for('main.contact'))
     return render_template("contact.html", title='Contact', form=form)
 
+@main.route('/.well-known/acme-challenge/5UFmLdsRmujgW77faFCeE86SettuelNiQGpnnetCJSY')
+def acme():
+    return send_file('static/acme.txt')

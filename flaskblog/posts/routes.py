@@ -79,3 +79,5 @@ def new_post():
         return redirect(url_for('posts.blog'))
     return render_template ('create_post.html', title = 'Create Post', form = form, legend="New Post")
 
+
+
