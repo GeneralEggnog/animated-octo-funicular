@@ -43,8 +43,8 @@
                     <div class="card-text mt-3 blog-text" >{{ post.content|safe }}</div>
                     
                 </div>
-                <a href="{{ url_for('posts.post', post_id=post.id, blogpage=posts.page) }}">
-                    <button class="btn btn-info rounded-1 h-100" >
+                <a  href="{{ url_for('posts.post', post_id=post.id, blogpage=posts.page) }}">
+                    <button class="btn btn-info rounded-1 h-100 stretched-link" >
                         <i class="bi bi-arrow-right"></i>
                     </button>
                     
