@@ -33,18 +33,22 @@
             {% for post in posts.items %}
             <a id="{{ post.id }}"></a>
             <div class="card my-3 flex-row">
-                <div class="card-body">
-                    <h3 class="card-title">{{ post.title }}</h3>
-                    <p class="card-subtitle text-muted">{{ post.date_posted.strftime('%B %e, %Y') }}
-                        {% if post.date_posted.strftime('%B %e, %Y') != post.last_updated.strftime('%B %e, %Y') %} |
-                        <span> Last Updated on {{ post.last_updated.strftime('%B %e, %Y')}}</span>
-                        {% endif %}
-
-                    </p>
-                    <div class="card-text mt-3 blog-text" >{{ post.content|safe }}</div>
-                    
+                <div class="w-100">
+                    <h3 class="card-title card-header">{{ post.title }}</h3>
+                    <div class="card-body">
+                        <p class="card-subtitle text-muted">{{ post.date_posted.strftime('%B %e, %Y') }}
+                            {% if post.date_posted.strftime('%B %e, %Y') != post.last_updated.strftime('%B %e, %Y') %} |
+                            <span> Last Updated on {{ post.last_updated.strftime('%B %e, %Y')}}</span>
+                            {% endif %}
+    
+                        </p>
+                        <div class="card-text mt-3 blog-text" >{{ post.content|safe }}</div>
+                    </div>  
                 </div>
-                <a  href="{{ url_for('posts.post', post_id=post.id, blogpage=posts.page) }}">
+
+               
+
+                <a  href="{{ url_for('posts.post', post_id=post.id, blogpage=posts.page) }}" class="ml-auto">
                     <button class="btn btn-info rounded-1 h-100 stretched-link" >
                         <i class="bi bi-arrow-right"></i>
                     </button>
