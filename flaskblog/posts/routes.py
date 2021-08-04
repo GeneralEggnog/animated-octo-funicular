@@ -1,6 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flaskblog.posts.forms import PostForm, CommentForm
 from flaskblog import db
+from flask_login import login_required
 from flaskblog.models import Post, Comment
 from datetime import datetime
 
@@ -31,6 +32,7 @@ def post(post_id):
     return render_template('post.html', title=post.title, post=post, form=form, comments=comments, blogpage=blogpage)
 
 @posts.route("/blog/post/<int:post_id>/edit", methods=["GET", "POST"])
+@login_required
 def update_post(post_id):
     post = Post.query.get_or_404(post_id)
     form = PostForm()
@@ -47,6 +49,7 @@ def update_post(post_id):
     return render_template('create_post.html', title='Update Post', form =form, legend='Edit Post')
 
 @posts.route("/blog/post/<int:post_id>/delete")
+@login_required
 def delete_post(post_id):
     post = Post.query.get_or_404(post_id)
     comments = Comment.query.filter_by(post_id=post_id)
@@ -58,6 +61,7 @@ def delete_post(post_id):
     return redirect(url_for('posts.blog'))
 
 @posts.route("/blog/post/<int:post_id>/deletecomment")
+@login_required
 def delete_comment(post_id):
     comment_id = request.args.get('comment_id')
     comment = Comment.query.get_or_404(comment_id)
@@ -69,6 +73,7 @@ def delete_comment(post_id):
 
 
 @posts.route("/blog/new_post", methods=["GET", "POST"])
+@login_required
 def new_post():
     form = PostForm()
     if form.validate_on_submit():
