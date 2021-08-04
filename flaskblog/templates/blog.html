@@ -26,6 +26,7 @@
             </div>
         </div>
         <div class="col-lg-9 px-3">
+            <a id="blogposts"></a>
             {% if current_user.is_authenticated %}
             <a class="btn btn-info mt-3" href="{{ url_for('posts.new_post') }}">New Post</a>
             {% endif %}
@@ -53,13 +54,13 @@
             {% endfor %}
             <div class="d-flex justify-content-between">
                 {% if posts.page != 1 %}
-                <a class="btn btn-info mb-3" href="{{ url_for('posts.blog', page=posts.page-1)}}"><i class="bi bi-arrow-left"></i></a>
+                <a class="btn btn-info mb-3" href="{{ url_for('posts.blog', page=posts.page-1, _anchor='blogposts')}}"><i class="bi bi-arrow-left"></i></a>
                 {% else %}
                 <a class="btn btn-info mb-3 invisible" href="#"><i class="bi bi-arrow-left"></i></a>
                 {% endif %}
                 <h4>Page {{posts.page}}/{{posts.pages}}</h4>
                 {% if posts.page != posts.pages %}
-                <a class="btn btn-info mb-3" href="{{ url_for('posts.blog', page=posts.page+1)}}"><i class="bi bi-arrow-right"></i></a>
+                <a class="btn btn-info mb-3" href="{{ url_for('posts.blog', page=posts.page+1, _anchor='blogposts')}}"><i class="bi bi-arrow-right"></i></a>
                 {% else %}
                 <a class="btn btn-info mb-3 invisible" href="#"><i class="bi bi-arrow-right"></i></a>
                 {% endif %}
