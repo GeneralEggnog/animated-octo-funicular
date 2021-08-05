@@ -1,9 +1,9 @@
 {% extends "layout.html"%}
 {% set active_page = "about" %}
 {% block content %}
-<div class="container-fluid main-content p-3 mt-3">
+<div class="container p-3 mt-3">
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-lg-5">
             <h1>About Me</h1>  
             <hr>
             <p>My name is Kendle, and I'm a 16 year old high school senior. Here are some fun facts about me :) </p>
@@ -15,10 +15,10 @@
             </ul>
             <p>I'm interested in learning about you, too! Head over to my <a href="{{ url_for('posts.blog') }}">blog</a> and post a comment so I can get to know you!</p>
         </div>
-        <div class="col-md-4 mb-3">
+        <div class="col-lg-4 mb-3">
             <img class="img-fluid"src="{{ url_for('static', filename='about_image.jpg')}}">
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3">
             <div class="card" style="border-color:#2c7cb0">
                     <h5 class="card-title text-white card-header" style="background-color: #2c7cb0;">My Socials</h5>
 
