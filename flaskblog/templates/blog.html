@@ -7,7 +7,7 @@
             <div class="sticky-top p-3">
                 <div class="flex-column">
                     <div class="container">
-                        <img id="circle-image" class="mx-auto d-block my-4" src="{{ url_for('static', filename='blog_profile.jpg') }}">
+                        <img id="circle-image" alt="Kendle Blog profile picture" title="Profile Picture" class="mx-auto d-block my-4" src="{{ url_for('static', filename='blog_profile.jpg') }}">
                         <h4 class="text-center">Kendle Lam</h4>
                         <div class="text-muted text-center">
                             {{posts.total}} Posts &#8226; Last posted {{posts.items[0].date_posted.strftime('%B %e, %Y')}}

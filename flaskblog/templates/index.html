@@ -1,7 +1,7 @@
 {% extends "layout.html"%}
 {% set active_page = "index" %}
 {% block content %}
-    <div class="container main-content pt-3">
+    <div class="container pt-3">
         <div class="row">
             <div class="col-md-7 align-self-center">
                 <h1 class="py-3">Hi there, I'm Kendle! &#128075</h1>  
@@ -9,8 +9,8 @@
                 <p>In my free time, you'll find me playing League of Legends, reading political and economic articles, or playing piano. Nice to meet you! </p>    
                 <p>Check out my <a href="{{ url_for('posts.blog') }}">blog</a> if you're interested in learning more about me :)</p>
             </div>
-            <div class="col-md-5 py-5">
-                <img class="img-fluid home-image"src="{{ url_for('static', filename='homepic.jpg') }}">
+            <div class="col-md-5 py-5 align-self-center">
+                <img class="img-fluid" alt="Kendle Lam" title="Kendle Lam"src="{{ url_for('static', filename='homepic.jpg') }}">
             </div>
         </div>
     </div>
