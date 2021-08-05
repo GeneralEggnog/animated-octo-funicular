@@ -7,20 +7,17 @@
         <span>
             <a class="btn bg-light my-3" href="{{ url_for('posts.blog', page=blogpage, _anchor= post.id )}}"><i class="bi bi-arrow-left"></i><span class="ml-2"> Back to Blog</span></a>
         </span>
-        
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <h1 class="card-title">{{ post.title }}</h1>
-                    {% if current_user.is_authenticated %}
-                    <div>
-                        <a class="btn btn-outline-secondary" href="{{ url_for('posts.update_post', post_id=post.id) }}" role="button">Edit Post</a>
-                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deletePostModal">
-                            <i class="bi bi-trash"></i>
+        {% if current_user.is_authenticated %}
+                    <div class="p-2">
+                        <a class="btn btn-outline-secondary btn-block" href="{{ url_for('posts.update_post', post_id=post.id) }}" role="button"><i class="bi bi-pencil-square"></i> Edit Post</a>
+                        <button type="button " class="btn btn-outline-danger btn-block" data-toggle="modal" data-target="#deletePostModal">
+                            <i class="bi bi-trash"></i> Delete Post
                           </button>
                     </div>
                 {% endif %}
-                </div>
+        <div class="card">
+            <div class="card-body">
+                    <h1 class="card-title">{{ post.title }}</h1>
 
                     <h5 class="card-subtitle text-muted">{{ post.date_posted.strftime('%B %e, %Y') }}</h5>
                     <div class="card-text pt-3">{{ post.content|safe }}</div>
