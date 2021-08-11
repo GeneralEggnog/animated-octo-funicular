@@ -14,9 +14,9 @@ comment_per_page = 5
 @posts.route("/blog")
 def blog():
     page = request.args.get('page', 1, type=int)
-    firstpost = Post.query.order_by(Post.date_posted.desc()).first()
+    latestpost = Post.query.order_by(Post.date_posted.desc()).first()
     posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=comment_per_page)
-    return render_template("blog.html", posts = posts, title='Blog', firstpost=firstpost)
+    return render_template("blog.html", posts = posts, title='Blog', latestpost=latestpost)
 
 @posts.route("/blog/post/<int:post_id>", methods=["GET", "POST"])
 def post(post_id):
