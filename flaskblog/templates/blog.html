@@ -10,7 +10,7 @@
                         <img id="circle-image" alt="Kendle Blog profile picture" title="Profile Picture" class="mx-auto d-block my-4" src="{{ url_for('static', filename='blog_profile.jpg') }}">
                         <h4 class="text-center">Kendle Lam</h4>
                         <div class="text-muted text-center">
-                            {{posts.total}} Posts &#8226; Last posted {{posts.items[0].date_posted.strftime('%B %e, %Y')}}
+                            {{posts.total}} Posts &#8226; Last posted {{firstpost.date_posted.strftime('%B %e, %Y')}}
                         </div>
                         <div class="py-4 px-2">
                             <p>Hi everyone, welcome to my blog!</p> 
