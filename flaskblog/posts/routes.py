@@ -29,6 +29,7 @@ def post(post_id):
         comment = Comment(author=form.name.data, content=form.comment.data, post=post)
         db.session.add(comment)
         db.session.commit()
+        flash('Comment added!', 'success')
         return redirect(url_for('posts.post', post_id=post.id, _anchor="comments"))
     return render_template('post.html', title=post.title, post=post, form=form, comments=comments, blogpage=blogpage)
 
