@@ -34,7 +34,7 @@ def contact():
         message.attach(text)
         context = ssl.create_default_context()
         with smtplib.SMTP_SSL("smtp.gmail.com", port=465, context=context) as server:
-            server.login(sender_email, 'blogpass123')
+            server.login(sender_email, 'blogpassword')
             server.send_message(message)
         flash('Message sent! Thanks for reaching out!', 'success')
         return redirect(url_for('main.contact'))
