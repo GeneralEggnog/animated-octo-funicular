@@ -9,7 +9,6 @@ users = Blueprint('users', __name__)
 @users.route("/admin", methods=["GET", "POST"])
 def admin():
     form = AdminForm()
-    flash(form.errors)
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
