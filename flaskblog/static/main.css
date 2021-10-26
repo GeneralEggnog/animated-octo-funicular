@@ -25,6 +25,10 @@ h5 span{
     -webkit-box-orient: vertical;
  }
 
+ .blog-text h1,.blog-text h2,.blog-text h3,.blog-text h4,.blog-text h5,.blog-text h6 {
+    font-size:120%;
+ }
+
 .blog-card{
     border:1px solid rgb(187, 187, 187);
     background-color: white;
