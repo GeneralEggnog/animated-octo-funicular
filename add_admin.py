@@ -18,8 +18,9 @@ if command == '1':
     print("Successfully added new Administrator!")
 elif command=='2':
     username = input('Username: ')
-    user = User.query.filter_by(username=username).first()
+    
     with create_app().app_context():
+        user = User.query.filter_by(username=username).first()
         if user:
             db.session.delete(user)
             db.session.commit()
