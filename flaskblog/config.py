@@ -6,6 +6,6 @@ class Config:
     CKEDITOR_PKG_TYPE = 'basic'
     SQLALCHEMY_DATABASE_URI = 'postgresql://mrjbuifvfrfotv:4e08df0ec6fdbe522e94a3bdce34f9de12f5f6aec48cc78723cadb3a82ad82d5@ec2-3-237-55-96.compute-1.amazonaws.com:5432/djb3lh6cu3p2q'
     RECAPTCHA_USE_SSL= False
-    RECAPTCHA_PUBLIC_KEY= '6LeXKuocAAAAAGBcFIH-ADt6RrvENvD0dSXwhs2D'
-    RECAPTCHA_PRIVATE_KEY ='6LeXKuocAAAAADVOCTI7aFmyuQhdN7DI-ylR7o8j'
+    RECAPTCHA_PUBLIC_KEY= '6LfytU8hAAAAAJIpuj1LYxjM6MORweaaPedDTEA0'
+    RECAPTCHA_PRIVATE_KEY ='6LfytU8hAAAAAN5VNjUlQDSoUNIRb6IbfxU1oUXP'
     RECAPTCHA_OPTIONS = {'theme':'white'}
