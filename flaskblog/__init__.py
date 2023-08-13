@@ -30,6 +30,7 @@ users = {
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(Config)
+    app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {"pool_pre_ping": True}  
 
     db.init_app(app)
     bcrypt.init_app(app)

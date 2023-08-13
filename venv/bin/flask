@@ -1,4 +1,4 @@
-#!/Users/kendlelam/animated-octo-funicular/venv/bin/python
+#!/Users/kendlelam/repos/flask-blog/venv/bin/python3.11
 # -*- coding: utf-8 -*-
 import re
 import sys
